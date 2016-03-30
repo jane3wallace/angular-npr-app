@@ -1,3 +1,3 @@
-app.controller('RelatedController', function($scope) {
+app.controller('RelatedController', ['$scope', function($scope) {
 	
-});
+}]);
