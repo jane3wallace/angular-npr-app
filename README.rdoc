@@ -1,0 +1,3 @@
+== Practice Project - <i>AngularJS NPR Web Application</i>
+
+AngularJS web application utilizing NPR's API to play some of their audio programs.
