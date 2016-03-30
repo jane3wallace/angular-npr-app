@@ -1,8 +1,15 @@
 <!doctype html>
-<html ng-app="nprApp">
+<html lang="en" ng-app="nprApp">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			NPR Audio Player
+		</title>
+		<!-- Include Foundation styles -->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.css"/>
+		<!-- Custom styles -->
+		<link rel="stylesheet" type="text/css" href="css/custom.css"/>
 		<!-- Include the core jQuery library -->
 		<script   src="https://code.jquery.com/jquery-1.12.2.min.js"   integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk="   crossorigin="anonymous"></script>
 		<!-- Include the core AngularJS library -->
@@ -11,19 +18,36 @@
 		<script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
 	</head>
 	<body ng-controller="FrameController">
-		<h1>NPR Player</h1>
-		<div ng-controller="PlayerController">
-			<button ng-click="play()" class="button" ng-show="!playing">Play</button>
-			<button ng-click="stop()" class="button alert" ng-show="playing">Stop</button>
-			Playing audio: <strong></strong>
-			{{ programs }}
+		<div class="row">
+			<h1>Play NPR Audio</h1>
+		</div>
+		
+		<div class="container row">
+			<div class="large-8 small-8 columns">
+				<h2>Player</h2>
+				<div ng-controller="PlayerController">
+					<ul id="programs_list" class="">
+						<li ng-repeat="program in programs" ng-click="play(program)">
+						<span npr-link play='play(program)' ng-model="program"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="large-4 small-4 columns" ng-controller="RelatedController">
+				<h2>Related Content</h2>
+			</div>
 		</div>
 
+		<!-- Foundation JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.js"></script>
 		<!-- Modules -->
 		<script src="js/app.js"></script>
 		<!-- Controllers -->
 		<script src="js/controllers/PlayerController.js"></script>
 		<script src="js/controllers/RelatedController.js"></script>
 		<script src="js/controllers/FrameController.js"></script>
+		<!-- Directives -->
+		<script src="js/directives/nprLink.js"></script>
 	</body>
 </html>
