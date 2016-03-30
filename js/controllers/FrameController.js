@@ -1,4 +1,4 @@
 // Parent scope
-app.controller('FrameController', ['$scope', function($scope) {
+app.controller('FrameController', function($scope) {
 
-}]);
+});
