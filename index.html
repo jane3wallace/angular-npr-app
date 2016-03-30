@@ -6,6 +6,8 @@
 		<title>
 			NPR Audio Player
 		</title>
+		<!-- Include Normalize styles -->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css"/>
 		<!-- Include Foundation styles -->
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.css"/>
 		<!-- Custom styles -->
@@ -24,11 +26,12 @@
 		
 		<div class="container row">
 			<div class="large-8 small-8 columns">
-				<h2>Player</h2>
 				<div ng-controller="PlayerController">
+					<h2>Player</h2>
 					<div class="container">
 						<div player-view class="large-12 columns small-12" ng-model="player"></div>
 					</div>
+					<h2>Programs</h2>
 					<ul id="programs_list" class="">
 						<li ng-repeat="program in programs">
 							<span npr-link player='player' ng-model="program"></span>
